@@ -4,7 +4,7 @@ Observações técnicas
 O parâmetro desta função pode ser alterado para atender ao requisito proposto. */
 
 const data = require('../data/zoo_data');
-const { species } = require('../data/zoo_data');
+/* const { species } = require('../data/zoo_data'); */
 
 /* MINHAS OBSERVAÇÕES: Utilização do rest pois principal uso é função com vários parametros */
 /* https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects */
@@ -35,4 +35,3 @@ console.log(getSpeciesByIds());
 /* Segundo if, pega a callback e compara para ver se tem no objeto se tem o id */
 
 module.exports = getSpeciesByIds;
-
