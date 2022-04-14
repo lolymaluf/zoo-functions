@@ -7,6 +7,8 @@ const data = require('../data/zoo_data');
 const { species } = require('../data/zoo_data');
 
 /* MINHAS OBSERVAÇÕES: Utilização do rest pois principal uso é função com vários parametros */
+/* https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects */
+/* https://www.figma.com/file/zjaQmPu6M8zb6E05KviIQa/Revis%C3%A3o-Array-Functions?node-id=6%3A810 */
 
 function getSpeciesByIds(...ids) {
   /* let BuscaDeEspecies = species.filter((specie) => specie.id); */
