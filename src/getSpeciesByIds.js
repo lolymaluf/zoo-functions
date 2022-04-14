@@ -11,16 +11,28 @@ const { species } = require('../data/zoo_data');
 /* https://www.figma.com/file/zjaQmPu6M8zb6E05KviIQa/Revis%C3%A3o-Array-Functions?node-id=6%3A810 */
 
 function getSpeciesByIds(...ids) {
-  /* let BuscaDeEspecies = species.filter((specie) => specie.id); */
-  if (ids === 0) {
+/* let BuscaDeEspecies = species.filter((specie) => specie.id); */
+if (ids === 0) {
+    return [];
+  }
+    if (ids !== 0) {
+      return data.species.filter((callback) => ids.includes(callback.id));
+    }
+  } 
+console.log(getSpeciesByIds());
+
+/*   Abaixo segue forma de fazer com o map, porém achei mais complicado
+
+    if (ids === 0) {
     return [];
   }
     if (ids !== 0) {
       return ids.map((callback) => species.find((idNovo) => idNovo.id === callback));
     }
-  }
+  } */
 
 /* map invoca a callback, faz manipulação dos elementos e retorna array novo diferente do atual. Estou usando para percorrer e comparar */
 /* Segundo if, pega a callback e compara para ver se tem no objeto se tem o id */
 
 module.exports = getSpeciesByIds;
+
