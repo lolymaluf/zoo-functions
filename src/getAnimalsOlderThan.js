@@ -4,6 +4,7 @@ Esta função, a partir do nome de uma espécie e uma idade mínima, verifica se
 Observações técnicas
 Deve retornar um valor booleano. */
 
+/* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/find */
 /* https://www.figma.com/file/zjaQmPu6M8zb6E05KviIQa/Revis%C3%A3o-Array-Functions?node-id=6%3A810 */
 
 function getAnimalsOlderThan(animal, age) {
