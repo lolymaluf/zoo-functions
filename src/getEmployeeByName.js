@@ -11,9 +11,11 @@ function getEmployeeByName(employeeName) {
   if (!employeeName) {
     return {};
   }
-  data.employees.find((perfilEmpregado) => {
-    const { firstName, lastName } = perfilEmpregado;
-    return employeeName === firstName || employeeName === lastName;
+  return data.employees.find((perfilEmpregado) => { /* procura o empregado antes de fazer a condicional */
+    if (employeeName === perfilEmpregado.firstName || employeeName === perfilEmpregado.lastName) {
+      return true;
+    }
+    return false;
   });
 }
 getEmployeeByName('Bethea');
