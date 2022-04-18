@@ -29,12 +29,10 @@ function countAnimals(animal) {
     });
     return todosOsAnimais;
   }
-  const selecionarAnimais = (animalSelec) => animalSelec.name === animal.specie;
-  const animaisSelecionados = species.find(selecionarAnimais);
-  return animaisSelecionados.residents.length;
+  const animalSelecionado = species.find((animalEspcfc) => animalEspcfc.name === animal.specie);
 }
 
-console.log(countAnimals('penguins'));
+/* console.log(countAnimals('penguins')); */
 
 module.exports = countAnimals;
 
@@ -48,3 +46,7 @@ module.exports = countAnimals;
     accAnimais += animais.species.popularity;
     return accAnimais;
   }); */
+
+  /*   const selecionarAnimais = (animalSelec) => animalSelec.name === animal.specie;
+  const animaisSelecionados = species.find(selecionarAnimais);
+  return animaisSelecionados.residents.length; */
