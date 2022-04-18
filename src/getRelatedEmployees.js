@@ -12,7 +12,7 @@ se não for uma pessoa colaboradora gerente, deverá ser lançado um erro gerado
 
 function isManager(id) {
   if (data.employees.find((manager) => manager.managers.includes(id))) {
-    return true;    
+    return true;
   }
   return false;
 }

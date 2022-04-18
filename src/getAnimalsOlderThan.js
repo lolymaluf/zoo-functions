@@ -20,7 +20,7 @@ module.exports = getAnimalsOlderThan;
 /* primeiro declarei o caminho para procurar o caminho dos animais e compara os nomes, depois a condicional para comparar as idades e retornar caso o parametro que passamos para a idade retorne verdadeiro ou falso */
 
 /* RESOLUÇÃO ABAIXO EU NAO CONSEGUI PEGAR O AGE PQ É UM ARRAY DENTRO DO OBJETO, ENTAO TIVE QUE MUDAR A RESOLUÇÃO
-  const nomeAnimal = data.species.name; 
+  const nomeAnimal = data.species.name;
   const idadeAnimal = data.species.residents.age;
   if (nomeAnimal === animal && idadeAnimal >= age) {
     return true;
