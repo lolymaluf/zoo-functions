@@ -21,15 +21,23 @@ const totalDeCervejasEmEstoque = cervejas.reduce((total, cerveja) => {
 }, 0); */
 
 function countAnimals(animal) {
+  let indexAnimal = 0;
   if (!animal) {
-    const todosOsAnimais = {};
+    const todosOsAnimaisObj = {};
     species.forEach((animais) => {
-      const indexAnimal = animais.residents.length;
-      todosOsAnimais[`${animais.name}`] = indexAnimal;
+      indexAnimal = animais.residents.length;
+      indexAnimal = todosOsAnimaisObj[`${animais.name}`];
     });
-    return todosOsAnimais;
+    return todosOsAnimaisObj;
   }
-/*   const animalSelecionado = species.find((animalEspcfc) => animalEspcfc.name === animal.specie); */
+    const animalSelecionado = species.find((animalEspcfc) => animalEspcfc.name === animal.specie);
+    if (!animal.sex) {
+      indexAnimal = animalSelecionado.residents.length;
+      return indexAnimal;
+    }
+    indexAnimal = animalSelecionado.residents
+    .filter((generoAnimal) => generoAnimal.sex === animal.sex).length;
+    return indexAnimal;
 }
 
 /* console.log(countAnimals('penguins')); */
