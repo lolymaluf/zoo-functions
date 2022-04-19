@@ -1,4 +1,3 @@
-const { species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 /* 5. Implemente a função countAnimals
@@ -21,25 +20,26 @@ const totalDeCervejasEmEstoque = cervejas.reduce((total, cerveja) => {
 }, 0); */
 
 function countAnimals(animal) {
-  let indexAnimal = 0;
-  if (!animal) {
-    const todosOsAnimaisObj = {};
-    species.forEach((animais) => {
-      indexAnimal = animais.residents.length;
-      indexAnimal = todosOsAnimaisObj[`${animais.name}`];
+  if (animal === undefined) {
+    const nenhumAnimal = {};
+    data.species.forEach((animalAtual) => {
+      nenhumAnimal[animalAtual.name] = animalAtual.residents.length;
     });
-    return todosOsAnimaisObj;
+    return nenhumAnimal;
   }
-    const animalSelecionado = species.find((animalEspcfc) => animalEspcfc.name === animal.specie);
-    if (!animal.sex) {
-      indexAnimal = animalSelecionado.residents.length;
-      return indexAnimal;
-    }
-    indexAnimal = animalSelecionado.residents
-    .filter((generoAnimal) => generoAnimal.sex === animal.sex).length;
-    return indexAnimal;
+  if (animal.sex === undefined) {
+    return data.species.find(
+      (animalAtual) => animalAtual.name === animal.specie,
+    ).residents.length;
+  }
+  return data.species
+    .find((animalAtual) => animalAtual.name === animal.specie)
+    .residents.filter((animalAtual) => animalAtual.sex === animal.sex).length;
 }
-
+/* Primeiro se não existir o animal, passa por todas as espécies retornando meu callback que é nada (não existe) passa por todos os nomes dos bichos e joga junto com o index que é o length (vejo o tamanho do array de e o nome e volto com os dois).
+aí jogo no index com o objeto para pegar o nome e q quantidade pra retornar.
+Primeiro quando eu tenho a especie e NAO tenho o sexo, so utilizo a especie. e retorno a especie e o numero que tenho.
+o animalSelecionado esta sendo utilizado para o primeiro if se nao tiver sexo e se eu tiver sexo, vou dizer quantos tem baseado no sexo (se minha callback for igual ao genero do animal) e retorno o tamanho desse array */
 /* console.log(countAnimals('penguins')); */
 
 module.exports = countAnimals;
@@ -58,3 +58,24 @@ module.exports = countAnimals;
 /* const selecionarAnimais = (animalSelec) => animalSelec.name === animal.specie;
 const animaisSelecionados = species.find(selecionarAnimais);
 return animaisSelecionados.residents.length; */
+
+/* OUTRA FORMA DE FAZER QUE NÃO PASSOU:
+function countAnimals(animal) {
+  let indexAnimal = 0;
+  if (!animal) {
+    const todosOsAnimaisObj = {};
+    species.forEach((animais) => {
+      indexAnimal = animais.residents.length;
+      indexAnimal = todosOsAnimaisObj[`${animais.name}`];
+    });
+    return todosOsAnimaisObj;
+  }
+    const animalSelecionado = species.find((animalEspcfc) => animalEspcfc.name === animal.specie);
+    if (!animal.sex) {
+      indexAnimal = animalSelecionado.residents.length;
+      return indexAnimal;
+    }
+    indexAnimal = animalSelecionado.residents
+    .filter((generoAnimal) => generoAnimal.sex === animal.sex).length;
+    return indexAnimal;
+} */
