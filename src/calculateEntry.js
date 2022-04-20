@@ -37,7 +37,14 @@ function countEntrants(entrants) {
 /* declaro a idade como variavel e depois faço 3 ifs para cada faixa etaria. No fim coloco o acc como forma de objeto */
 
 function calculateEntry(entrants) {
-  // sewu código aaqui
+  if (entrants === undefined || Object.keys(entrants).length === 0) {
+    return 0;
+  }
+  const totalArrecadado = countEntrants(entrants).senior * 24.99
+  + countEntrants(entrants).adult * 49.99
+  + countEntrants(entrants).child * 20.99;
+  return totalArrecadado;
 }
+/* Antes havia feito uma variavel para cada countEntrants adulto, senior e child e depois somei as 3 em outra variavel, depois resolvi fazer diretamente */
 /* É um if for undefined ou um length 0, vai ser zero. depois somo a entrada (primeira função) de cada e pra acessar o objeto jogo a função ponto o parametro que eu quero de cada faixa */
 module.exports = { calculateEntry, countEntrants };
