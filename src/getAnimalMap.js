@@ -48,7 +48,7 @@ const mesmoSexo = (genre, specie) =>
     return acc;
   }, []);
 
-  /* Precisamos filptrar por sexo por causa do requisito e por isto e pela dica do atanes de dividir em novas funções, melhor adicionar uma nova função para isto. */
+    /* Precisamos filptrar por sexo por causa do requisito e por isto e pela dica do atanes de dividir em novas funções, melhor adicionar uma nova função para isto. */
 
 function getAnimalMap(
   options = { incluirNomes: false, sorted: false, sex: false },
