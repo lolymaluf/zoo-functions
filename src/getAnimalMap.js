@@ -37,23 +37,38 @@ const localizacao = () => {
 };
 /* Depois precisamos adicionar os nomes com push quando recebermos parametro com genero. */
 
-const mesmoSexo = (genre, specie) => specie.residents.reduce((acc, animal) => {
-  if (genre.sex === animal.sex) {
-    acc.push(animal.name);
-  }
-  if (genre.sex === undefined) {
-    acc.push(animal.name);
-  }
-  return acc;
-}, []);
+const mesmoSexo = (genre, specie) =>
+  specie.residents.reduce((acc, animal) => {
+    if (genre.sex === animal.sex) {
+      acc.push(animal.name);
+    }
+    if (genre.sex === undefined) {
+      acc.push(animal.name);
+    }
+    return acc;
+  }, []);
 
-function getAnimalMap(options = { incluirNomes: false, soreted: false, sex: false },
-  ) {
-    const animais = data.species.reduce((acc, animal) => {
-      if (options.incluirNomes === true) {
-        consr arrayAn = animalsSameSex(options, animal)
+  /* Precisamos filptrar por sexo por causa do requisito e por isto e pela dica do atanes de dividir em novas funções, melhor adicionar uma nova função para isto. */
+
+function getAnimalMap(
+  options = { incluirNomes: false, sorted: false, sex: false },
+) {
+  const animais = data.species.reduce(
+    (acc, animal) => {
+      if (options.includeNames === true) {
+        const arrayAnimal = mesmoSexo(options, animal);
+        if (options.sorted === true) {
+          arrayAnimal.sort();
+        }
+        acc[animal.location].push({ [animal.name]: arrayAnimal });
+      } else {
+        return localizacao();
       }
-    })
+      return acc;
+    },
+    { NE: [], NW: [], SE: [], SW: [] },
+  );
+  return animais;
 }
 
 module.exports = getAnimalMap;
